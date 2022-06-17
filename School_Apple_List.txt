@@ -1,0 +1,9 @@
+Room-223-AppleTV.local - 172.19.100.21
+Jr-Gym-Apple-TV.local - 172.19.100.38
+Room-336-Apple-TV.local - 172.19.100.20
+Room-135-Apple-TV.local - 172.19.100.163
+Sr-Gym.local - 172.20.1.157
+Room 335 Smartboard - d5459e5b-d6bc-4ec3-a593-f9672cb2e7db.local - 172.20.1.190
+Meraki-FW-A - MX250 - 205.250.139.226
+Meraki-FW-A - MX250 - 192.168.129.254
+Room223? - 172.20.3.6
