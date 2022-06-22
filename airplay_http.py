@@ -1,7 +1,7 @@
 import http.client
 import hashlib
 
-host = 'Apple-TV-2.local'
+host = '172.20.3.14'
 port = 7000
 method = ''
 url = ''
@@ -11,7 +11,8 @@ photo = ''
 video_url = ''
 video_plist = ''
 h = {
-    'User-Agent': 'Arcs'
+    'User-Agent': 'AirPlay/615.12.1',
+    'X-Apple-Client-Name': 'Subwoofer'
 }
 
 def makeAuthorization(password,method,url):
@@ -30,7 +31,7 @@ if a == 'v':
     method = 'POST'
     url = '/play'
     h['Content-Type'] = 'application/x-apple-binary-plist'
-    video_url = input("Enter video url or enter for default") or "https://devstreaming-cdn.apple.com/videos/wwdc/2019/502gzyuhh8p2r8g8/502/502_hd_introducing_lowlatency_hls.mp4?dl=1"
+    video_url = input("Enter video url or enter for default") or "http://devimages.apple.com.edgekey.net/iphone/samples/bipbop/bipbopall.m3u8"
     video_plist = '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0">\n<dict>\n\t<key>Content-Location</key>\n\t<string>'+video_url+'</string>\n\t<key>Start-Position</key>\n\t<real>0</real>\n</dict>\n</plist>\n'
     data = video_plist
 elif a == 'p':
@@ -48,7 +49,6 @@ else:
 h1 = http.client.HTTPConnection(host,port)
 h1.request(method,url,body=data,headers=h)
 r1 = h1.getresponse()
-r1.read()
 print(r1.status)
 
 if(r1.status == 401):
